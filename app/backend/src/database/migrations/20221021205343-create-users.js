@@ -9,6 +9,14 @@ module.exports = {
       primaryKey: true,
       autoIncrement: true,
     },
+    username: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    role: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
     email: {
       type: Sequelize.STRING,
       allowNull: false,
@@ -17,10 +25,6 @@ module.exports = {
       type: Sequelize.STRING,
       allowNull: false,
     },
-    role: {
-      type: Sequelize.STRING,
-      allowNull: false,
-    }
    })
   },
 
