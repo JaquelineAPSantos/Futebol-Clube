@@ -1,14 +1,9 @@
 import * as express from 'express';
-// import userController from '../controllers/userController';
+import { Request, Response } from 'express';
+import UserController from '../controllers/UserController';
 
 const loginRoute = express.Router();
-const adminValid = { email: 'admin@admin.com', password: 'secret_admin' };
-// const adminNoPwd = { email: 'admin@admin.com', password: '' };
 
-loginRoute.post('/', (req, res) => {
-  res.status(200).json(adminValid);
-  // res.status(400).json(adminNoPwd);
-});
-// loginRoute.get('/validate', userController.validateLogin);
+loginRoute.post('/', (req: Request, res: Response) => UserController.login(req, res));
 
 export default loginRoute;
