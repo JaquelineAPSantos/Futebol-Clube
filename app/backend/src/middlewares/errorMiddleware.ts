@@ -1,20 +1,19 @@
 import { ErrorRequestHandler } from 'express';
 
-const errorMiddleware: ErrorRequestHandler = (err, _req, res, _next) => {
-  const { name, message } = err;
-  switch (name) {
-    case 'ValidationError':
-      res.status(400).json({ message: err.details[0].message });
-      break;
-    case 'UnauthorizedError':
-      res.status(401).json({ message });
-      break;
-    case 'NotFoundError':
-      res.status(404).json({ message });
-      break;
-    default:
-      res.status(500).json({ message });
+const errorMiddleware: ErrorRequestHandler = async (err, _req, res, next) => {
+  const { status, name, message } = err;
+
+  if (name === 'JsonWebTokenError') {
+    res.status(401).json({ message: 'Token must be a valid token' });
+    return next();
   }
+  if (name === 'ValidationError') {
+    res.status(400).json({ message: 'All fields must be filled' });
+    return next();
+  }
+  res.status(status || 500).json({ message });
+
+  next();
 };
 
 export default errorMiddleware;
