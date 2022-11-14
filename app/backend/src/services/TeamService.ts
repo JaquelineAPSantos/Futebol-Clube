@@ -6,11 +6,11 @@ export default class TeamsService {
     return Team.findAll();
   }
 
-  static async findByPk(id: string) {
+  static async findByPk(id: number) {
     const team = await Team.findByPk(id);
     if (!team) {
       throw new NotFoundError('There is no team with such id!');
     }
-    return Team.findByPk(id);
+    return team;
   }
 }
