@@ -5,7 +5,11 @@ import MatchController from '../controllers/MatchController';
 
 const matchRoute = express.Router();
 
-matchRoute.get('/', (req: Request, res: Response) => MatchController.getAll(req, res));
-matchRoute.post('/', (req: Request, res: Response) => MatchController.saveInProgress(req, res));
+matchRoute.get('/matches', (req: Request, res: Response) => MatchController.getAll(req, res));
+matchRoute.post('/matches', (req: Request, res: Response) =>
+  MatchController.saveInProgress(req, res));
+matchRoute.patch('/matches/:id', (req: Request, res: Response) => MatchController.update(req, res));
+matchRoute.patch('/matches/:id/finish', (req: Request, res: Response) =>
+  MatchController.updateFinish(req, res));
 
 export default matchRoute;

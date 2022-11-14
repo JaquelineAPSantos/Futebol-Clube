@@ -6,8 +6,8 @@ import UserController from '../controllers/UserController';
 const loginRoute = express.Router();
 
 loginRoute.get('/users', (req: Request, res: Response) => UserController.getAll(req, res));
-loginRoute.post('/', (req: Request, res: Response) => UserController.login(req, res));
-loginRoute.get('/validate', (req: Request, res: Response) =>
+loginRoute.get('/login/validate', (req: Request, res: Response) =>
   UserController.validateLogin(req, res));
+loginRoute.post('/login', (req: Request, res: Response) => UserController.login(req, res));
 
 export default loginRoute;

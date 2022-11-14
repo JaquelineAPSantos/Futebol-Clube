@@ -5,7 +5,7 @@ import TeamController from '../controllers/TeamController';
 
 const teamRoute = express.Router();
 
-teamRoute.get('/', (req: Request, res: Response) => TeamController.getAll(req, res));
-teamRoute.get('/:id', (req: Request, res: Response) => TeamController.findByPk(req, res));
+teamRoute.get('/teams', (req: Request, res: Response) => TeamController.getAll(req, res));
+teamRoute.get('/teams/:id', (req: Request, res: Response) => TeamController.findByPk(req, res));
 
 export default teamRoute;
