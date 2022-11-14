@@ -13,6 +13,7 @@ const errorMiddleware: ErrorRequestHandler = async (err, _req, res, next) => {
   }
   if (name === 'NotFoundError') {
     res.status(404).json({ message: 'There is no team with such id!' });
+    return next();
   }
   res.status(status || 500).json({ message });
 
