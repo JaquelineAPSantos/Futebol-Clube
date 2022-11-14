@@ -28,10 +28,8 @@ const user = {
 describe('Endpoint /login', () => {
   let chaiHttpResponse: Response;
 
-  before(async () => {
-    sinon
-      .stub(User, 'findOne')
-      .resolves(user as User);
+  before(() => {
+    sinon.stub(User, 'findOne').resolves(user as User);
   });
 
   after(()=>{
@@ -62,7 +60,7 @@ describe('Endpoint /login', () => {
      expect(chaiHttpResponse.status).to.equal(400);
   });
 
-  it('Verificar se retorna 200 com os dados incorretos', async () => {
+  it('Verificar se retorna 401 quando inseridos os dados incorretos', async () => {
     chaiHttpResponse = await chai.request(app)
     .post('/login')
     .send(adminBadPwd)
