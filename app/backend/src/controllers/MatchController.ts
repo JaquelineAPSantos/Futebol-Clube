@@ -3,9 +3,19 @@ import MatchService from '../services/MatchService';
 import { validateToken } from '../services/jwtService';
 
 export default class MatchController {
-  static async getAll(_req: Request, res: Response) {
+  static async getAll(req: Request, res: Response) {
+    if (req.query.inProgress) {
+      const result = this.findAllInProcess(req, res);
+      return result;
+    }
     const teams = await MatchService.getTeams();
     return res.status(200).json(teams);
+  }
+
+  static async findAllInProcess(req: Request, res: Response) {
+    const { inProgress } = req.query;
+    const matches = await MatchService.findAllInProcess(JSON.parse(inProgress as string));
+    res.status(200).json(matches);
   }
 
   static async saveInProgress(req: Request, res: Response) {
