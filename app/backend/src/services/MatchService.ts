@@ -25,13 +25,18 @@ export default class MatchService {
   }
 
   static async verifyTeams(teams: { homeTeam: number, awayTeam: number }) {
-    await TeamService.findByPk(teams.homeTeam);
-    await Team.findByPk(teams.awayTeam);
+    const teamService = await TeamService.findByPk(teams.homeTeam);
+    const teamModel = await Team.findByPk(teams.awayTeam);
+    if (!teamService && !teamModel) {
+      return new Error('There is no team with such id!');
+    }
   }
 
   static async create(body: {
     homeTeam: number,
-    awayTeam: number, homeTeamGoals: number, awayTeamGoals: number, inProgress: boolean }) {
+    awayTeam: number,
+    homeTeamGoals: number,
+    awayTeamGoals: number }) {
     await this.verifyTeams({ homeTeam: body.homeTeam, awayTeam: body.awayTeam });
     const match = {
       homeTeam: body.homeTeam,
