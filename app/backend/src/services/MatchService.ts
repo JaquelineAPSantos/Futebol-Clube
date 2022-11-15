@@ -12,15 +12,27 @@ export default class MatchService {
     });
   }
 
+  static async findAllInProcess(inProgress: boolean) {
+    const matches = await Match.findAll({
+      include: [
+        { model: Team, as: 'teamHome', attributes: { exclude: ['id'] } },
+        { model: Team, as: 'teamAway', attributes: { exclude: ['id'] } },
+      ],
+      where: { inProgress },
+    });
+
+    return matches;
+  }
+
   static async verifyTeams(teams: { homeTeam: number, awayTeam: number }) {
     await TeamService.findByPk(teams.homeTeam);
     await Team.findByPk(teams.awayTeam);
   }
 
   static async create(body: {
-    homeTeam: number, awayTeam: number, homeTeamGoals: number, awayTeamGoals: number }) {
+    homeTeam: number,
+    awayTeam: number, homeTeamGoals: number, awayTeamGoals: number, inProgress: boolean }) {
     await this.verifyTeams({ homeTeam: body.homeTeam, awayTeam: body.awayTeam });
-
     const match = {
       homeTeam: body.homeTeam,
       homeTeamGoals: body.homeTeamGoals,
