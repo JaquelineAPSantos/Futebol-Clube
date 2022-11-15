@@ -18,7 +18,7 @@ export default class MatchController {
     res.status(200).json(matches);
   }
 
-  static async saveInProgress(req: Request, res: Response) {
+  static async create(req: Request, res: Response) {
     const { authorization } = req.headers;
     const { homeTeam, awayTeam } = req.body;
     if (homeTeam === awayTeam) {
