@@ -30,4 +30,21 @@ describe('Endpoint /matches', () => {
     
     expect(chaiHttpResponse.status).to.equal(200);
   });
+
+  it('Verificar se retorna o status 200 ao alterar gols', async () => {
+    sinon.stub(Match, 'update').resolves()
+    chaiHttpResponse = await chai.request(app)
+    .patch('/matches/2')
+    .send({ homeTeamGoals: 50, awayTeamGoals: 32 });
+    
+    expect(chaiHttpResponse.status).to.equal(200);
+  });
+
+  it('Verificar se retorna o status 200 ao acabar a partida', async () => {
+    sinon.stub(Match, 'update').resolves()
+    chaiHttpResponse = await chai.request(app).patch('/matches/42/finish');
+    
+    expect(chaiHttpResponse.status).to.equal(200);
+  });
+
 });
