@@ -7,7 +7,7 @@ const matchRoute = express.Router();
 
 matchRoute.get('/matches', (req: Request, res: Response) => MatchController.getAll(req, res));
 matchRoute.post('/matches', (req: Request, res: Response) =>
-  MatchController.saveInProgress(req, res));
+  MatchController.create(req, res));
 matchRoute.patch('/matches/:id', (req: Request, res: Response) => MatchController.update(req, res));
 matchRoute.patch('/matches/:id/finish', (req: Request, res: Response) =>
   MatchController.updateFinish(req, res));
