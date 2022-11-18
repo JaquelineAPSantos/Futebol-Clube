@@ -25,6 +25,8 @@ const user = {
   "password": "$2a$08$xi.Hxk1czAO0nZR..B393u10aED0RQ1N3PAEXQ7HxtLjKPEZBu.PW"
 };
 
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsInBhc3N3b3JkIjoic2VjcmV0X2FkbWluIiwiaWF0IjoxNjY4NjA2OTI3fQ.dSogjSnPin8-hyk67EMySveZRcMXaVIOj4jM3Mx21IE'
+
 describe('Endpoint /login', () => {
   let chaiHttpResponse: Response;
 
@@ -67,5 +69,13 @@ describe('Endpoint /login', () => {
     
     expect(chaiHttpResponse.status).to.equal(401);
     expect(chaiHttpResponse.body).to.be.deep.equal({ message: 'Incorrect email or password' });
+  });
+
+  it('Verificar se valida login com o token', async () => {
+    chaiHttpResponse = await chai.request(app)
+    .get('/login/validate')
+    .set('authorization', token)
+    
+    expect(chaiHttpResponse.status).to.equal(200);
   });
 });
