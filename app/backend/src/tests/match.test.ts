@@ -46,5 +46,5 @@ describe('Endpoint /matches', () => {
     
     expect(chaiHttpResponse.status).to.equal(200);
   });
-
+  
 });
