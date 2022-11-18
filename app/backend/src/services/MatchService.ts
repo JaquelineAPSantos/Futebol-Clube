@@ -1,9 +1,10 @@
 import Match from '../database/models/Match';
 import Team from '../database/models/Team';
 import TeamService from './TeamService';
+import IMatch from '../interfaces/IMatch';
 
 export default class MatchService {
-  static async getTeams() {
+  static async getTeams(): Promise<IMatch[]> {
     return Match.findAll({
       include: [
         { model: Team, as: 'teamHome', attributes: { exclude: ['id'] } },
@@ -12,7 +13,7 @@ export default class MatchService {
     });
   }
 
-  static async findAllInProcess(inProgress: boolean) {
+  static async findAllInProcess(inProgress: boolean): Promise<IMatch[]> {
     const matches = await Match.findAll({
       include: [
         { model: Team, as: 'teamHome', attributes: { exclude: ['id'] } },
@@ -38,15 +39,15 @@ export default class MatchService {
     homeTeamGoals: number,
     awayTeamGoals: number }) {
     await this.verifyTeams({ homeTeam: body.homeTeam, awayTeam: body.awayTeam });
-    const match = {
+    const match: IMatch = await Match.create({
       homeTeam: body.homeTeam,
       homeTeamGoals: body.homeTeamGoals,
       awayTeam: body.awayTeam,
       awayTeamGoals: body.awayTeamGoals,
       inProgress: true,
-    };
+    });
 
-    return Match.create(match);
+    return match;
   }
 
   static async update(id: string, homeTeamGoals: number, awayTeamGoals: number) {
