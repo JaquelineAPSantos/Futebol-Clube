@@ -2,15 +2,19 @@ import { Request, Response } from 'express';
 import LeaderboardService from '../services/LeaderboardService';
 
 export default class LeaderboardController {
-  static async allMatches(_req: Request, res: Response) {
-    const teams = await LeaderboardService.allMatches();
+  leaderboardService: LeaderboardService;
 
-    return res.status(200).json(teams);
+  constructor() {
+    this.leaderboardService = new LeaderboardService();
   }
 
-  // static async homeMatches(_req: Request, res: Response) {
-  //   const teams = await LeaderboardService.homeMatches();
+  getAllHome = async (_req: Request, res: Response) => {
+    const leaderHome = await this.leaderboardService.getLeaderboard('home_team', 'away_team');
+    return res.status(200).json(leaderHome);
+  };
 
-  //   res.status(200).json(teams);
-  // }
+  getAllAway = async (_req: Request, res: Response) => {
+    const leaderHome = await this.leaderboardService.getLeaderboard('away_team', 'home_team');
+    return res.status(200).json(leaderHome);
+  };
 }
