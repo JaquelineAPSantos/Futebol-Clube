@@ -30,7 +30,7 @@ describe('Endpoint /Teams', () => {
     expect(response.status).to.equal(200);
   });
 
-  it('Verificar se retorna Teams corretamente', async () => {
+  it('Verificar se retorna Team corretamente', async () => {
     const response = await chai.request(app)
     .get('/teams')
     
