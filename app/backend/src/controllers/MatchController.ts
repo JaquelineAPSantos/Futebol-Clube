@@ -31,10 +31,7 @@ export default class MatchController {
     }
 
     const team = await MatchService.create(req.body);
-
-    if (team) {
-      return res.status(201).json(team);
-    }
+    return res.status(201).json(team);
   }
 
   static async update(req: Request, res: Response) {
