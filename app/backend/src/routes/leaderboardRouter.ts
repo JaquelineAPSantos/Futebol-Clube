@@ -1,11 +1,10 @@
-import * as express from 'express';
-import 'express-async-errors';
-import { Request, Response } from 'express';
+import { Router } from 'express';
 import LeaderboardController from '../controllers/LeaderboardController';
 
-const leaderboardRoute = express.Router();
+const leaderboardController = new LeaderboardController();
+const leaderboardRouter = Router();
 
-leaderboardRoute.get('/home', (req: Request, res: Response) =>
-  LeaderboardController.allMatches(req, res));
+leaderboardRouter.get('/home', leaderboardController.getAllHome);
+leaderboardRouter.get('/away', leaderboardController.getAllAway);
 
-export default leaderboardRoute;
+export default leaderboardRouter;

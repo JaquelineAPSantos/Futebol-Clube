@@ -1,8 +1,8 @@
 import IMatch from './IMatch';
 
 export default interface LeaderboardTeam {
-  id: number,
+  id?: number,
   teamName: string,
-  homeMatche: IMatch[],
+  homeMatches: IMatch[],
   awayMatches: IMatch[],
 }

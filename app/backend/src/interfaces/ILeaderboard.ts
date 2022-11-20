@@ -1,4 +1,4 @@
-export default interface ILeaderboard {
+export interface ILeaderboard {
   name: string,
   totalPoints: number,
   totalGames: number,
@@ -8,5 +8,8 @@ export default interface ILeaderboard {
   goalsFavor: number,
   goalsOwn: number,
   goalsBalance: number,
-  efficiency: string,
+  efficiency: number,
+}
+export interface ILeaderboarService {
+  getLeaderboard(team1: string, team2: string): Promise<ILeaderboard[]>,
 }
