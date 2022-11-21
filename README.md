@@ -4,7 +4,7 @@
 
 ---
 ## 📕Descrição
-No projeto Futebol Clube houve a criação de uma API RESTful, na sua construção foi utilizado o modelo MSC [ MODEL - SERVICE - CONTROLLER] e também TypeScript para a sua construção.Utilizando os conceitos de POO e SOLID e uma abrangente cobertura feita por testes Mocha, Chai e Sinon.
+Esse projeto foi desenvolvido por mim ([Jaqueline Santos](www.linkedin.com/in/jaquelineapsantos)), consiste na criação de uma API RESTful, em sua construção foi utilizado o modelo MSC [ MODEL - SERVICE - CONTROLLER], Sequelize e TypeScript. Utilizei os conceitos de POO, SOLID e uma abrangente cobertura de testes utilizando: Mocha, Chai e Sinon.
 
 
 
@@ -15,11 +15,9 @@ No projeto Futebol Clube houve a criação de uma API RESTful, na sua construç�
 - Express.js
 - Docker
 - MySql
-- .Env
-- Express Recuse
-- Json web Tokens
+- .env
+- Json web Token
 - Node.js
-- Sequelize.js
 - Bcrypt
 - DotEnv
 - Mysql
