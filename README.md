@@ -1,13 +1,42 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+#  FUTEBOL CLUBE  
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+![Jaqueline](![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/94487656/203142757-9b768011-e8df-4b1d-984c-07117463cbf0.gif)
+)
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+
+# 📕Descrição
+No projeto Futebol clube houve a criação de uma API RESTful, na sua construção utilizei o modelo MSC [ MODEL - SERVICE - CONTROLLER] e também foi utilizado o TypeScript para a sua construção.Utilizando os conceitos de Poo e uma abrangente cobertura feita por testes.
+
+
+
+# 🪓Ferramentas Utilizadas
+- TypeScript
+- Sequelize.js
+- POO
+- Express.js
+- Docker
+- MySql
+- .Env
+- Express Recuse
+- Json web Tokens
+- Node.js
+- Sequelize.js
+- Bcrypt
+- DotEnv
+- Mysql
+- Mocha.js
+- Chai.js
+- Sinon.js
+
+ 
+# 💡Lições aprendidas
+```JavaScript
+let licoesAprendidas = [
+ 'Praticando TypeScript',
+ 'utilizando classes em TypeScript'
+ 'API com MSC' ,
+ 'Testes com chai , mocha.js e sinon ',
+ 'autenticação por Json Web Token',
+ 'utilizando Bcrypt para criptografar senha'
+ 'Sequelize'
+]
