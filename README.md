@@ -1,15 +1,14 @@
 #  FUTEBOL CLUBE  
 
-![Jaqueline](![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/94487656/203142757-9b768011-e8df-4b1d-984c-07117463cbf0.gif)
-)
+![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/94487656/203142757-9b768011-e8df-4b1d-984c-07117463cbf0.gif)
+
+---
+## 📕Descrição
+No projeto Futebol Clube houve a criação de uma API RESTful, na sua construção foi utilizado o modelo MSC [ MODEL - SERVICE - CONTROLLER] e também TypeScript para a sua construção.Utilizando os conceitos de POO e SOLID e uma abrangente cobertura feita por testes Mocha, Chai e Sinon.
 
 
-# 📕Descrição
-No projeto Futebol clube houve a criação de uma API RESTful, na sua construção utilizei o modelo MSC [ MODEL - SERVICE - CONTROLLER] e também foi utilizado o TypeScript para a sua construção.Utilizando os conceitos de Poo e uma abrangente cobertura feita por testes.
 
-
-
-# 🪓Ferramentas Utilizadas
+## 🪓Ferramentas Utilizadas
 - TypeScript
 - Sequelize.js
 - POO
@@ -29,7 +28,7 @@ No projeto Futebol clube houve a criação de uma API RESTful, na sua construç�
 - Sinon.js
 
  
-# 💡Lições aprendidas
+## 💡Lições aprendidas
 ```JavaScript
 let licoesAprendidas = [
  'Praticando TypeScript',
